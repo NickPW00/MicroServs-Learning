@@ -1,7 +1,15 @@
 package com.example.user_service.services;
 
+import com.example.user_service.dto.CartItemResponse;
+import com.example.user_service.dto.ProductResponse;
+import com.example.user_service.model.CartItem;
+import com.example.user_service.repository.CartItemRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.reactive.function.client.WebClient;
+
+import java.util.List;
+import java.util.UUID;
 
 // CartService.java
 @Service
