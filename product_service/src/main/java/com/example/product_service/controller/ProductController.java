@@ -1,28 +1,35 @@
 package com.example.product_service.controller;
 
-import com.example.product_service.dto.ProductDTOResponse;
-import com.example.product_service.model.Product;
+import com.example.product_service.dto.CreateProductRequest;
+import com.example.product_service.dto.ProductResponse;
 import com.example.product_service.services.ProductService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Controller;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/product")
+@RequestMapping("/products")
 @RequiredArgsConstructor
 public class ProductController {
 
     private final ProductService productService;
 
     @GetMapping("/{id}")
-    public ProductDTOResponse findById(@PathVariable UUID id) {
-        return ProductDTOResponse.from(productService.findById(id));
+    public ResponseEntity<ProductResponse> findById(@PathVariable UUID id) {
+        return ResponseEntity.ok(productService.findById(id));
     }
 
     @GetMapping
-    public ProductDTOResponse findByName(@RequestParam String name) {
-        return ProductDTOResponse.from(productService.findByName(name));
+    public ResponseEntity<ProductResponse> findByName(@RequestParam String name) {
+        return ResponseEntity.ok(productService.findByName(name));
+    }
+
+    @PostMapping
+    public ResponseEntity<ProductResponse> create(@RequestBody CreateProductRequest request) {
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(productService.create(request));
     }
 }
