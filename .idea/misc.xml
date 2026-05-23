@@ -5,13 +5,13 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/user_service/pom.xml" />
-        <option value="$PROJECT_DIR$/product_service/pom.xml" />
         <option value="$PROJECT_DIR$/cart-service/pom.xml" />
         <option value="$PROJECT_DIR$/api_gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/product_service/pom.xml" />
       </list>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="ms-21" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="ms-21 (2)" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>
