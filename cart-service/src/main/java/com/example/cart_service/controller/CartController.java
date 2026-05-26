@@ -3,6 +3,7 @@ package com.example.cart_service.controller;
 import com.example.cart_service.dto.AddItemRequest;
 import com.example.cart_service.dto.CartItemResponse;
 import com.example.cart_service.service.CartService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,7 +26,7 @@ public class CartController {
     }
 
     @PostMapping
-    public ResponseEntity<CartItemResponse> addItem(@PathVariable UUID userId,
+    public ResponseEntity<CartItemResponse> addItem(@PathVariable  @Valid UUID userId,
                                                     @RequestBody AddItemRequest request) {
         CartItemResponse response = cartService.addItem(userId, request.productId(), request.quantity());
         return ResponseEntity.status(HttpStatus.CREATED).body(response);

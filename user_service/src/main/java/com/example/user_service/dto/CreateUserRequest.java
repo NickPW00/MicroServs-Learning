@@ -1,4 +1,11 @@
 package com.example.user_service.dto;
 
-public record CreateUserRequest(String name, String email) {
-}
+import jakarta.validation.constraints.NotBlank;
+
+public record CreateUserRequest(
+        @NotBlank(message = "Nome é obrigatório")
+        String name,
+
+        @NotBlank(message = "Email é obrigatório")
+        String email
+) {}
